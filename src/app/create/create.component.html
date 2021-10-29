@@ -1,0 +1,26 @@
+<div class="container">
+  <br>
+  <div class="alert alert-primary" role="alert" *ngIf="successmsg">
+    {{successmsg}}
+  </div>
+  <div class="alert alert-danger" role="alert" *ngIf="errormsg">
+    {{errormsg}}
+  </div>
+  <form [formGroup] = "userForm">
+    <div class="mb-3">
+      <input type="text" class="form-control" formControlName="fullname" placeholder="Enter FullName">
+    </div>
+    <div class="mb-3">
+      <input type="email" class="form-control" formControlName="email" placeholder="Enter Email">
+    </div>
+    <div class="mb-3">
+      <input type="phone" class="form-control" formControlName="mobile" placeholder="Enter Mobile Phone">
+    </div>
+    <div class="mb-3" *ngIf="!getParamId">
+      <button type="submit" class="btn btn-primary" (click)="userSubmit()">Create</button>
+    </div>
+    <div class="mb-3" *ngIf="getParamId">
+      <button type="submit" class="btn btn-danger" (click)="updateSubmit()">Update</button>
+    </div>
+  </form>
+</div>
